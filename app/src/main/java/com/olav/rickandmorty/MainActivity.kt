@@ -2,6 +2,7 @@ package com.olav.rickandmorty
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,12 +20,15 @@ class MainActivity : AppCompatActivity() {
 
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
 
+
         lifecycleScope.launchWhenCreated {
             recyclerView.apply {
                 ramViewModel.stateFlow.collectLatest {
                     layoutManager = LinearLayoutManager(this@MainActivity)
                     if (it != null) {
-                        adapter = RaMAdapter(it)
+                        adapter = RaMAdapter(it, onItemClick = {character ->
+                            Log.i("Character: ", character.name)
+                        })
                     }
                 }
             }
