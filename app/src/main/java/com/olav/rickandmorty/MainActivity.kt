@@ -12,8 +12,9 @@ import com.olav.rickandmorty.adapter.RaMAdapter
 import com.olav.rickandmorty.model.Character
 import com.olav.rickandmorty.viewmodels.RaMViewModel
 import kotlinx.coroutines.flow.collectLatest
+import java.io.Serializable
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), Serializable {
     override fun onCreate(savedInstanceState: Bundle?) {
         val ramViewModel = ViewModelProvider(this)[RaMViewModel::class.java]
         super.onCreate(savedInstanceState)
@@ -40,6 +41,7 @@ class MainActivity : AppCompatActivity() {
     private fun navigateToCharacterDetails(character: Character) {
         Log.i("Character: ", character.name)
         val intent = Intent(this, CharacterDetailActivity::class.java)
+        intent.putExtra("charact", character)
         startActivity(intent)
     }
 }
