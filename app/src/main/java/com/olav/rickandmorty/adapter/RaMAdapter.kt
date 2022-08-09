@@ -11,7 +11,7 @@ import com.olav.rickandmorty.model.Characters
 import com.olav.rickandmorty.model.Character
 import com.squareup.picasso.Picasso
 
-class RaMAdapter(val characters: Characters, var onItemClick: ((Character) -> Unit)? = null)
+class RaMAdapter(private val characters: Characters, var onItemClick: ((Character) -> Unit)? = null)
     : RecyclerView.Adapter<RaMAdapter.CharacterViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterViewHolder {

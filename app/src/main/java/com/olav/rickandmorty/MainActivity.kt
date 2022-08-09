@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity(), Serializable {
     private fun navigateToCharacterDetails(character: Character) {
         Log.i("Character: ", character.name)
         val intent = Intent(this, CharacterDetailActivity::class.java)
-        intent.putExtra("charact", character)
+        intent.putExtra("character", character)
         startActivity(intent)
     }
 }

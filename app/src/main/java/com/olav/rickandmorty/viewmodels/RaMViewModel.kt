@@ -1,6 +1,5 @@
 package com.olav.rickandmorty.viewmodels
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.olav.rickandmorty.model.Characters
 import com.olav.rickandmorty.retrofit.RaMApi

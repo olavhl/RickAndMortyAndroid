@@ -5,8 +5,8 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object RaMApiClient {
-    val client = OkHttpClient.Builder().build()
-    val retrofit = Retrofit.Builder()
+    private val client = OkHttpClient.Builder().build()
+    private val retrofit = Retrofit.Builder()
         .addConverterFactory(
             GsonConverterFactory.create()
         )
