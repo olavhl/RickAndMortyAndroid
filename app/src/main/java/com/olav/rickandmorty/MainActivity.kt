@@ -1,5 +1,6 @@
 package com.olav.rickandmorty
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -8,6 +9,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.olav.rickandmorty.adapter.RaMAdapter
+import com.olav.rickandmorty.model.Character
 import com.olav.rickandmorty.viewmodels.RaMViewModel
 import kotlinx.coroutines.flow.collectLatest
 
@@ -27,11 +29,17 @@ class MainActivity : AppCompatActivity() {
                     layoutManager = LinearLayoutManager(this@MainActivity)
                     if (it != null) {
                         adapter = RaMAdapter(it, onItemClick = {character ->
-                            Log.i("Character: ", character.name)
+                            navigateToCharacterDetails(character)
                         })
                     }
                 }
             }
         }
+    }
+
+    private fun navigateToCharacterDetails(character: Character) {
+        Log.i("Character: ", character.name)
+        val intent = Intent(this, CharacterDetailActivity::class.java)
+        startActivity(intent)
     }
 }
