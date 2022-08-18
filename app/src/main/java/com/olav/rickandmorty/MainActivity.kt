@@ -10,13 +10,19 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.olav.rickandmorty.adapter.RaMAdapter
 import com.olav.rickandmorty.model.Character
+import com.olav.rickandmorty.retrofit.RaMApi
+import com.olav.rickandmorty.retrofit.RaMApiClient
 import com.olav.rickandmorty.viewmodels.RaMViewModel
+import com.olav.rickandmorty.viewmodels.fetchCharacters
 import kotlinx.coroutines.flow.collectLatest
 import java.io.Serializable
 
 class MainActivity : AppCompatActivity(), Serializable {
     override fun onCreate(savedInstanceState: Bundle?) {
-        val ramViewModel = ViewModelProvider(this)[RaMViewModel::class.java]
+        // API
+        val raMApiClient = RaMApiClient.buildService(RaMApi::class.java)
+
+        val ramViewModel = RaMViewModel(raMApiClient.fetchCharacters())
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         ramViewModel.loadCharacters()
