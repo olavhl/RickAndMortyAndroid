@@ -1,7 +1,6 @@
 package com.olav.rickandmorty
 
 import android.os.Bundle
-import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -12,8 +11,6 @@ import java.io.Serializable
 class CharacterDetailActivity : AppCompatActivity(), Serializable {
     override fun onCreate(savedInstanceState: Bundle?) {
         val character = intent.getSerializableExtra("character") as Character
-        Log.i("MYCharacter", character.toString())
-
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_character_detail)

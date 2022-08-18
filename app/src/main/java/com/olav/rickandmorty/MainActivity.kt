@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -13,7 +12,7 @@ import com.olav.rickandmorty.model.Character
 import com.olav.rickandmorty.retrofit.RaMApi
 import com.olav.rickandmorty.retrofit.RaMApiClient
 import com.olav.rickandmorty.viewmodels.RaMViewModel
-import com.olav.rickandmorty.viewmodels.fetchCharacters
+import com.olav.rickandmorty.http.fetchCharacters
 import kotlinx.coroutines.flow.collectLatest
 import java.io.Serializable
 

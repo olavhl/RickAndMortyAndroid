@@ -28,8 +28,6 @@ class RaMAdapter(private val characters: Characters, var onItemClick: ((Characte
         return characters.results.count()
     }
 
-
-
     inner class CharacterViewHolder(itemView: View)
         : RecyclerView.ViewHolder(itemView) {
         private val tvTitle: TextView = itemView.findViewById(R.id.tvTitle)
