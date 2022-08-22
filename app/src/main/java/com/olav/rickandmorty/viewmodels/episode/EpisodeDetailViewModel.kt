@@ -1,37 +1,49 @@
 package com.olav.rickandmorty.viewmodels.episode
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.olav.rickandmorty.http.characters.FetchCharacter
+import com.olav.rickandmorty.http.episodes.FetchEpisode
+import com.olav.rickandmorty.model.Characters
 import com.olav.rickandmorty.model.Episode
-import com.olav.rickandmorty.retrofit.episode.EpisodeApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import java.lang.Error
 
 class EpisodeDetailViewModel(
     private val fetchEpisode: FetchEpisode,
+    private val fetchCharacter: FetchCharacter,
 ): ViewModel() {
     val episode = MutableLiveData<Episode?>()
+
+    private val _characters = MutableLiveData<Characters?>()
+    val characters = _characters
 
     fun getEpisode(id: String) {
         viewModelScope.launch {
             episode.value = withContext(Dispatchers.IO) { fetchEpisode(id) }
         }
     }
-}
 
-fun interface FetchEpisode {
-    suspend operator fun invoke(id: String) : Episode?
-}
+    fun getCharacters() {
+        var tempCharacters: Characters? = null
 
-fun EpisodeApi.fetchEpisode() = FetchEpisode {
-    try {
-        getEpisode(it).body()
-    } catch (e: Error) {
-        Log.e("Failed to fetch Episode from API", e.toString())
-        null
+        viewModelScope.launch {
+            episode.value?.characters?.forEach { characterUrl ->
+                val characterId = characterUrl.split("/").last()
+                val fetchedCharacter = withContext(Dispatchers.IO) { fetchCharacter(characterId) }
+
+                if (fetchedCharacter != null) {
+                    if (tempCharacters != null) {
+                        tempCharacters?.results?.add(fetchedCharacter)
+                    } else {
+                        tempCharacters = Characters(results = mutableListOf(fetchedCharacter))
+                    }
+                }
+            }
+            _characters.value = tempCharacters
+        }
     }
 }
+

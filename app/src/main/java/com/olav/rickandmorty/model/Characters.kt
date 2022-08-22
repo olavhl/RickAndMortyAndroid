@@ -3,7 +3,7 @@ package com.olav.rickandmorty.model
 import java.io.Serializable
 
 data class Characters(
-    val results: List<Character>
+    val results: MutableList<Character>
 )
 
 class Character: Serializable {
