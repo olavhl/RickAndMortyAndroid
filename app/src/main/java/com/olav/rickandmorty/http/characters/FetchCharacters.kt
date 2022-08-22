@@ -1,11 +1,12 @@
-package com.olav.rickandmorty.http
+package com.olav.rickandmorty.http.characters
 
 import android.util.Log
 import com.olav.rickandmorty.model.Characters
 import com.olav.rickandmorty.retrofit.CharacterApi
 import java.lang.Error
 
-fun interface FetchCharacters {
+fun interface
+FetchCharacters {
     suspend operator fun invoke(): Characters?
 }
 

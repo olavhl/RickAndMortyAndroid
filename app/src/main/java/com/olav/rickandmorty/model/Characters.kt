@@ -7,6 +7,7 @@ data class Characters(
 )
 
 class Character: Serializable {
+    val id: String = ""
     val name: String = ""
     val status: String = ""
     val species: String = ""
