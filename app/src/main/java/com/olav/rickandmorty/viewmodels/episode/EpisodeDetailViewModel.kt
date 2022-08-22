@@ -14,7 +14,7 @@ import kotlinx.coroutines.withContext
 class EpisodeDetailViewModel(
     private val fetchEpisode: FetchEpisode,
     private val fetchCharacter: FetchCharacter,
-): ViewModel() {
+) : ViewModel() {
     val episode = MutableLiveData<Episode?>()
 
     private val _characters = MutableLiveData<Characters?>()

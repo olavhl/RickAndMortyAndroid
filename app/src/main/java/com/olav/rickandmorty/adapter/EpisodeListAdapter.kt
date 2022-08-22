@@ -12,10 +12,11 @@ import com.olav.rickandmorty.model.Episodes
 class EpisodeListAdapter(
     private val episodes: Episodes,
     private val onEpisodeClicked: ((episode: Episode) -> Unit),
-    ) : RecyclerView.Adapter<EpisodeListAdapter.EpisodeViewHolder>() {
+) : RecyclerView.Adapter<EpisodeListAdapter.EpisodeViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EpisodeViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.episode_list_item, parent, false)
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.episode_list_item, parent, false)
         return EpisodeViewHolder(view)
     }
 

@@ -13,7 +13,7 @@ import java.lang.Error
 
 class EpisodeListViewModel(
     private val fetchEpisodes: FetchEpisodes,
-): ViewModel() {
+) : ViewModel() {
     val episodes = MutableLiveData<Episodes?>()
 
     fun loadEpisodes() {

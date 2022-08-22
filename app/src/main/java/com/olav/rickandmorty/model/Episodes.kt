@@ -1,7 +1,7 @@
 package com.olav.rickandmorty.model
 
 data class Episodes(
-    val results: List<Episode>
+    val results: List<Episode>,
 )
 
 class Episode {

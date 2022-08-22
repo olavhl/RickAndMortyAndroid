@@ -11,8 +11,8 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class CharacterListViewModel(
-    private val fetchCharacters: FetchCharacters
-): ViewModel()  {
+    private val fetchCharacters: FetchCharacters,
+) : ViewModel() {
     // StateFlow
     private var _stateFlow = MutableStateFlow<Characters?>(null)
     val stateFlow = _stateFlow.asStateFlow()

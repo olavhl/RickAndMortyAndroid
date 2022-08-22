@@ -2,26 +2,23 @@ package com.olav.rickandmorty.fragments
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
 import androidx.core.view.isVisible
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.olav.rickandmorty.EpisodeDetailActivity
 import com.olav.rickandmorty.R
 import com.olav.rickandmorty.adapter.EpisodeListAdapter
-import com.olav.rickandmorty.model.Episode
 import com.olav.rickandmorty.model.Episodes
 import com.olav.rickandmorty.retrofit.RamApiClient
 import com.olav.rickandmorty.retrofit.episode.EpisodeApi
 import com.olav.rickandmorty.viewmodels.episode.EpisodeListViewModel
 import com.olav.rickandmorty.viewmodels.episode.fetchEpisodes
-import kotlinx.coroutines.launch
 
 class EpisodeFragment : Fragment() {
     override fun onCreateView(

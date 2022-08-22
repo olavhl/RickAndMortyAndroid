@@ -26,7 +26,8 @@ class EpisodeDetailActivity : AppCompatActivity() {
 
         val ramApiClient = RamApiClient.buildService(EpisodeApi::class.java)
         val ramCharacterApiClient = RamApiClient.buildService(CharacterApi::class.java)
-        val vm = EpisodeDetailViewModel(ramApiClient.fetchEpisode(), ramCharacterApiClient.fetchCharacter())
+        val vm = EpisodeDetailViewModel(ramApiClient.fetchEpisode(),
+            ramCharacterApiClient.fetchCharacter())
 
         val tvEpisodeDetailName: TextView = findViewById(R.id.tvEpisodeDetailName)
         val tvEpisodeDetailNumber: TextView = findViewById(R.id.tvEpisodeDetailNumber)

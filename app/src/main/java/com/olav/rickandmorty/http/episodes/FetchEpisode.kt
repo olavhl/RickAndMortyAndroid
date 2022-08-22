@@ -6,7 +6,7 @@ import com.olav.rickandmorty.retrofit.episode.EpisodeApi
 import java.lang.Error
 
 fun interface FetchEpisode {
-    suspend operator fun invoke(id: String) : Episode?
+    suspend operator fun invoke(id: String): Episode?
 }
 
 fun EpisodeApi.fetchEpisode() = FetchEpisode {
