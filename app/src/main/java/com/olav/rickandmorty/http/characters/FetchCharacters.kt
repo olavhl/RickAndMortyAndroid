@@ -2,7 +2,7 @@ package com.olav.rickandmorty.http.characters
 
 import android.util.Log
 import com.olav.rickandmorty.model.Characters
-import com.olav.rickandmorty.retrofit.CharacterApi
+import com.olav.rickandmorty.retrofit.character.CharacterApi
 import java.lang.Error
 
 fun interface

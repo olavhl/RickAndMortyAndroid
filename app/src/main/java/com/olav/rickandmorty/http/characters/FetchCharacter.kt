@@ -2,7 +2,7 @@ package com.olav.rickandmorty.http.characters
 
 import android.util.Log
 import com.olav.rickandmorty.model.Character
-import com.olav.rickandmorty.retrofit.CharacterApi
+import com.olav.rickandmorty.retrofit.character.CharacterApi
 
 fun interface FetchCharacter {
     suspend operator fun invoke(id: String): Character?

@@ -1,4 +1,4 @@
-package com.olav.rickandmorty.viewmodels
+package com.olav.rickandmorty.viewmodels.character
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

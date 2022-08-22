@@ -1,4 +1,4 @@
-package com.olav.rickandmorty.viewmodels
+package com.olav.rickandmorty.viewmodels.character
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -20,4 +20,3 @@ class CharacterDetailViewModel(
         }
     }
 }
-

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tvEpisodeTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toStartOf="@+id/tvEpisodeCharacterCount"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="S01E01: Pilot" />
+
+    <TextView
+        android:id="@+id/tvEpisodeCharacterCount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:textAlignment="textEnd"
+        android:maxLines="2"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Characters: 13" />
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvEpisodeTitle" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

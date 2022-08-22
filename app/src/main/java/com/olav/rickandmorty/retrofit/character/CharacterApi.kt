@@ -1,4 +1,4 @@
-package com.olav.rickandmorty.retrofit
+package com.olav.rickandmorty.retrofit.character
 
 import com.olav.rickandmorty.model.Character
 import com.olav.rickandmorty.model.Characters

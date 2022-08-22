@@ -13,9 +13,9 @@ import com.olav.rickandmorty.CharacterDetailActivity
 import com.olav.rickandmorty.R
 import com.olav.rickandmorty.adapter.CharacterListAdapter
 import com.olav.rickandmorty.http.characters.fetchCharacters
-import com.olav.rickandmorty.retrofit.CharacterApi
+import com.olav.rickandmorty.retrofit.character.CharacterApi
 import com.olav.rickandmorty.retrofit.RamApiClient
-import com.olav.rickandmorty.viewmodels.CharacterListViewModel
+import com.olav.rickandmorty.viewmodels.character.CharacterListViewModel
 import kotlinx.coroutines.flow.collectLatest
 
 class CharacterFragment : Fragment() {
