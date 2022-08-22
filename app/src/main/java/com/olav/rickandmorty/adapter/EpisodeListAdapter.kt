@@ -11,7 +11,8 @@ import com.olav.rickandmorty.model.Episodes
 
 class EpisodeListAdapter(
     private val episodes: Episodes,
-) : RecyclerView.Adapter<EpisodeListAdapter.EpisodeViewHolder>() {
+    private val onEpisodeClicked: ((episode: Episode) -> Unit),
+    ) : RecyclerView.Adapter<EpisodeListAdapter.EpisodeViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EpisodeViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.episode_list_item, parent, false)
@@ -37,6 +38,10 @@ class EpisodeListAdapter(
         fun bindView(episode: Episode) {
             tvEpisodeTitle.text = "${episode.episode}: ${episode.name}"
             tvEpisodeCharacterCount.text = "Characters: ${episode.characters?.size}"
+
+            itemView.setOnClickListener {
+                onEpisodeClicked.invoke(episode)
+            }
         }
     }
 }

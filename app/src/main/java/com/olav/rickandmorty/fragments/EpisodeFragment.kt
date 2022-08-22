@@ -1,5 +1,6 @@
 package com.olav.rickandmorty.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.olav.rickandmorty.EpisodeDetailActivity
 import com.olav.rickandmorty.R
 import com.olav.rickandmorty.adapter.EpisodeListAdapter
 import com.olav.rickandmorty.model.Episode
@@ -42,7 +44,11 @@ class EpisodeFragment : Fragment() {
             if (it != null) {
                 rvEpisodes.apply {
                     layoutManager = LinearLayoutManager(context)
-                    adapter = EpisodeListAdapter(it)
+                    adapter = EpisodeListAdapter(it, onEpisodeClicked = { episode ->
+                        val intent = Intent(context, EpisodeDetailActivity::class.java)
+                        intent.putExtra("episode-id", episode.id)
+                        startActivity(intent)
+                    })
                 }
             }
         }
