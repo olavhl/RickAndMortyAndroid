@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
+import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -39,6 +41,7 @@ class EpisodeFragment : Fragment() {
         vm.loadEpisodes()
 
         val rvEpisodes: RecyclerView = view.findViewById(R.id.rvEpisodes)
+        val progressBar: ProgressBar = view.findViewById(R.id.progressBarEpisodeList)
 
         val episodesObserver = Observer<Episodes?> {
             if (it != null) {
@@ -50,6 +53,7 @@ class EpisodeFragment : Fragment() {
                         startActivity(intent)
                     })
                 }
+                progressBar.isVisible = false
             }
         }
 

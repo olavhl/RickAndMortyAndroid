@@ -42,4 +42,10 @@
         android:textSize="22sp"
         />
 
+    <ProgressBar
+        android:id="@+id/progressBarCharacterDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"/>
+
 </LinearLayout>

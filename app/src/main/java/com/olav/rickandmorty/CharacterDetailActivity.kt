@@ -2,8 +2,10 @@ package com.olav.rickandmorty
 
 import android.os.Bundle
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import com.olav.rickandmorty.model.Character
 import com.olav.rickandmorty.retrofit.character.CharacterApi
@@ -31,6 +33,7 @@ class CharacterDetailActivity : AppCompatActivity(), Serializable {
         val tvName: TextView = findViewById(R.id.tvName)
         val tvSpecies: TextView = findViewById(R.id.tvSpecies)
         val tvStatus: TextView = findViewById(R.id.tvStatus)
+        val progressBar: ProgressBar = findViewById(R.id.progressBarCharacterDetail)
 
 
         val characterObserver = Observer<Character?> {
@@ -38,6 +41,8 @@ class CharacterDetailActivity : AppCompatActivity(), Serializable {
             tvName.text = it.name
             tvSpecies.text = it.species
             tvStatus.text = it.status
+
+            progressBar.isVisible = false
         }
 
         vm.character.observe(this, characterObserver)

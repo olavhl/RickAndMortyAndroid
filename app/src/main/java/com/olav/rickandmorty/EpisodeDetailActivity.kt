@@ -3,7 +3,9 @@ package com.olav.rickandmorty
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -29,6 +31,7 @@ class EpisodeDetailActivity : AppCompatActivity() {
         val tvEpisodeDetailName: TextView = findViewById(R.id.tvEpisodeDetailName)
         val tvEpisodeDetailNumber: TextView = findViewById(R.id.tvEpisodeDetailNumber)
         val rvEpisodeCharacters: RecyclerView = findViewById(R.id.rvEpisodeCharacters)
+        val progressBar: ProgressBar = findViewById(R.id.progressBarEpisodeDetail)
 
         val episodeId = intent.getSerializableExtra("episode-id")
 
@@ -52,6 +55,7 @@ class EpisodeDetailActivity : AppCompatActivity() {
                         startActivity(intent)
                     })
                 }
+                progressBar.isVisible = false
             }
         }
 
