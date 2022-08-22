@@ -2,7 +2,7 @@ package com.olav.rickandmorty.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.olav.rickandmorty.http.FetchCharacters
+import com.olav.rickandmorty.http.characters.FetchCharacters
 import com.olav.rickandmorty.model.Characters
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow

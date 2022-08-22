@@ -5,7 +5,10 @@
       <map>
         <entry key="app/src/main/res/layout/activity_character_detail.xml" value="0.27808739536043436" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.24259259259259258" />
+        <entry key="app/src/main/res/layout/fragment_character.xml" value="0.5317708333333333" />
+        <entry key="app/src/main/res/layout/fragment_episode.xml" value="0.5317708333333333" />
         <entry key="app/src/main/res/layout/ram_cards.xml" value="0.25" />
+        <entry key="app/src/main/res/menu/bottom_nav.xml" value="0.5307291666666667" />
       </map>
     </option>
   </component>
