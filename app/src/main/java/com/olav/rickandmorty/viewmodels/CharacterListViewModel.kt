@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class RaMViewModel(
+class CharacterListViewModel(
     private val fetchCharacters: FetchCharacters
 ): ViewModel()  {
     // StateFlow

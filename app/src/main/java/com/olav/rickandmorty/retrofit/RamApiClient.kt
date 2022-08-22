@@ -4,7 +4,7 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-object RaMApiClient {
+object RamApiClient {
     private val client = OkHttpClient.Builder().build()
     private val retrofit = Retrofit.Builder()
         .addConverterFactory(

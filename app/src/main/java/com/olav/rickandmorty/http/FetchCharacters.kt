@@ -2,15 +2,14 @@ package com.olav.rickandmorty.http
 
 import android.util.Log
 import com.olav.rickandmorty.model.Characters
-import com.olav.rickandmorty.retrofit.RaMApi
+import com.olav.rickandmorty.retrofit.CharacterApi
 import java.lang.Error
-import java.lang.Exception
 
 fun interface FetchCharacters {
     suspend operator fun invoke(): Characters?
 }
 
-fun RaMApi.fetchCharacters() = FetchCharacters {
+fun CharacterApi.fetchCharacters() = FetchCharacters {
     try {
         getCharacters().body()
     } catch (e: Error) {

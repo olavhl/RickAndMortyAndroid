@@ -11,16 +11,16 @@ import com.olav.rickandmorty.model.Characters
 import com.olav.rickandmorty.model.Character
 import com.squareup.picasso.Picasso
 
-class RaMAdapter(private val characters: Characters, var onItemClick: ((Character) -> Unit)? = null)
-    : RecyclerView.Adapter<RaMAdapter.CharacterViewHolder>() {
+class CharacterListAdapter(private val characters: Characters, var onItemClick: ((Character) -> Unit)? = null)
+    : RecyclerView.Adapter<CharacterListAdapter.CharacterListViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterListViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.ram_cards, parent, false)
 
-        return CharacterViewHolder(view)
+        return CharacterListViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: CharacterViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: CharacterListViewHolder, position: Int) {
         return holder.bindView(characters.results[position])
     }
 
@@ -28,7 +28,7 @@ class RaMAdapter(private val characters: Characters, var onItemClick: ((Characte
         return characters.results.count()
     }
 
-    inner class CharacterViewHolder(itemView: View)
+    inner class CharacterListViewHolder(itemView: View)
         : RecyclerView.ViewHolder(itemView) {
         private val tvTitle: TextView = itemView.findViewById(R.id.tvTitle)
         private val image: ImageView = itemView.findViewById(R.id.image)

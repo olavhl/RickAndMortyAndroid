@@ -3,15 +3,14 @@ package com.olav.rickandmorty
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.olav.rickandmorty.adapter.RaMAdapter
+import com.olav.rickandmorty.adapter.CharacterListAdapter
 import com.olav.rickandmorty.model.Character
-import com.olav.rickandmorty.retrofit.RaMApi
-import com.olav.rickandmorty.retrofit.RaMApiClient
-import com.olav.rickandmorty.viewmodels.RaMViewModel
+import com.olav.rickandmorty.retrofit.CharacterApi
+import com.olav.rickandmorty.retrofit.RamApiClient
+import com.olav.rickandmorty.viewmodels.CharacterListViewModel
 import com.olav.rickandmorty.http.fetchCharacters
 import kotlinx.coroutines.flow.collectLatest
 import java.io.Serializable
@@ -19,9 +18,9 @@ import java.io.Serializable
 class MainActivity : AppCompatActivity(), Serializable {
     override fun onCreate(savedInstanceState: Bundle?) {
         // API
-        val raMApiClient = RaMApiClient.buildService(RaMApi::class.java)
+        val raMApiClient = RamApiClient.buildService(CharacterApi::class.java)
 
-        val ramViewModel = RaMViewModel(raMApiClient.fetchCharacters())
+        val ramViewModel = CharacterListViewModel(raMApiClient.fetchCharacters())
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         ramViewModel.loadCharacters()
@@ -34,7 +33,7 @@ class MainActivity : AppCompatActivity(), Serializable {
                 ramViewModel.stateFlow.collectLatest {
                     layoutManager = LinearLayoutManager(this@MainActivity)
                     if (it != null) {
-                        adapter = RaMAdapter(it, onItemClick = {character ->
+                        adapter = CharacterListAdapter(it, onItemClick = { character ->
                             navigateToCharacterDetails(character)
                         })
                     }
@@ -44,7 +43,6 @@ class MainActivity : AppCompatActivity(), Serializable {
     }
 
     private fun navigateToCharacterDetails(character: Character) {
-        Log.i("Character: ", character.name)
         val intent = Intent(this, CharacterDetailActivity::class.java)
         intent.putExtra("character", character)
         startActivity(intent)
