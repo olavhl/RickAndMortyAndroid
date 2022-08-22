@@ -1,5 +1,6 @@
 package com.olav.rickandmorty
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
@@ -45,7 +46,11 @@ class EpisodeDetailActivity : AppCompatActivity() {
             if (it != null) {
                 rvEpisodeCharacters.apply {
                     layoutManager = LinearLayoutManager(context)
-                    adapter = CharacterListAdapter(it)
+                    adapter = CharacterListAdapter(it, onItemClick = { character ->
+                        val intent = Intent(context, CharacterDetailActivity::class.java)
+                        intent.putExtra("character-id", character.id)
+                        startActivity(intent)
+                    })
                 }
             }
         }
