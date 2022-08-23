@@ -18,7 +18,7 @@ import com.olav.rickandmorty.model.Episodes
 import com.olav.rickandmorty.retrofit.RamApiClient
 import com.olav.rickandmorty.retrofit.episode.EpisodeApi
 import com.olav.rickandmorty.viewmodels.episode.EpisodeListViewModel
-import com.olav.rickandmorty.viewmodels.episode.fetchEpisodes
+import com.olav.rickandmorty.http.episodes.fetchEpisodes
 
 class EpisodeFragment : Fragment() {
     override fun onCreateView(
