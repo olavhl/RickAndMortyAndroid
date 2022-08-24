@@ -14,12 +14,12 @@ class CharacterListViewModel(
     private val fetchCharacters: FetchCharacters,
 ) : ViewModel() {
     // StateFlow
-    private var _stateFlow = MutableStateFlow<Characters?>(null)
-    val stateFlow = _stateFlow.asStateFlow()
+    private var _characters = MutableStateFlow<Characters?>(null)
+    val characters = _characters.asStateFlow()
 
     fun loadCharacters() {
         viewModelScope.launch {
-            _stateFlow.value = withContext(Dispatchers.IO) {
+            _characters.value = withContext(Dispatchers.IO) {
                 fetchCharacters()
             }
         }

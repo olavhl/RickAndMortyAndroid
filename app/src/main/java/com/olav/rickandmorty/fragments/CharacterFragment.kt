@@ -44,7 +44,7 @@ class CharacterFragment : Fragment() {
 
         lifecycleScope.launchWhenCreated {
             recyclerView.apply {
-                ramViewModel.stateFlow.collectLatest {
+                ramViewModel.characters.collectLatest {
                     layoutManager = LinearLayoutManager(context)
                     if (it != null) {
                         adapter = CharacterListAdapter(it, onItemClick = { character ->

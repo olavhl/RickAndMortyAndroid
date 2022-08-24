@@ -1,5 +1,6 @@
 package com.olav.rickandmorty.viewmodels.character
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -12,11 +13,12 @@ import kotlinx.coroutines.withContext
 class CharacterDetailViewModel(
     private val fetchCharacter: FetchCharacter,
 ) : ViewModel() {
-    val character = MutableLiveData<Character?>()
+    private val _character = MutableLiveData<Character?>()
+    val character: LiveData<Character?> = _character
 
     fun loadCharacter(id: String) {
         viewModelScope.launch {
-            character.value = withContext(Dispatchers.IO) { fetchCharacter(id) }
+            _character.value = withContext(Dispatchers.IO) { fetchCharacter(id) }
         }
     }
 }
