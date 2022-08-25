@@ -7,11 +7,11 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
-import com.olav.rickandmorty.model.Character
-import com.olav.rickandmorty.retrofit.character.CharacterApi
-import com.olav.rickandmorty.retrofit.RamApiClient
-import com.olav.rickandmorty.viewmodels.character.CharacterDetailViewModel
 import com.olav.rickandmorty.http.characters.fetchCharacter
+import com.olav.rickandmorty.model.Character
+import com.olav.rickandmorty.retrofit.RamApiClient
+import com.olav.rickandmorty.retrofit.character.CharacterApi
+import com.olav.rickandmorty.viewmodels.character.CharacterDetailViewModel
 import com.squareup.picasso.Picasso
 import java.io.Serializable
 
