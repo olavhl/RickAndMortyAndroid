@@ -1,33 +1,50 @@
 package com.olav.rickandmorty
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
+import com.olav.rickandmorty.databinding.ActivityCharacterDetailBinding
+import com.olav.rickandmorty.databinding.ActivityMainBinding
+import com.olav.rickandmorty.di.SecondRandomString
 import com.olav.rickandmorty.http.characters.fetchCharacter
 import com.olav.rickandmorty.model.Character
 import com.olav.rickandmorty.retrofit.RamApiClient
 import com.olav.rickandmorty.retrofit.character.CharacterApi
 import com.olav.rickandmorty.viewmodels.character.CharacterDetailViewModel
 import com.squareup.picasso.Picasso
+import dagger.hilt.EntryPoint
+import dagger.hilt.android.AndroidEntryPoint
 import java.io.Serializable
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class CharacterDetailActivity : AppCompatActivity(), Serializable {
+    @SecondRandomString
+    @Inject lateinit var anotherString: String
+
+    private lateinit var binding: ActivityCharacterDetailBinding
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityCharacterDetailBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         val ramApiClient = RamApiClient.buildService(CharacterApi::class.java)
         val vm = CharacterDetailViewModel(ramApiClient.fetchCharacter())
 
         val characterId = intent.getSerializableExtra("character-id")
 
+        Log.e("Test-String", anotherString)
         if (characterId != null) {
             vm.loadCharacter(characterId.toString())
         }
 
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_character_detail)
 
         val ivImage: ImageView = findViewById(R.id.ivImage)
         val tvName: TextView = findViewById(R.id.tvName)
