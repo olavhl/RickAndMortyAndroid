@@ -1,4 +1,4 @@
-package com.olav.rickandmorty
+package com.olav.rickandmorty.view
 
 import android.os.Bundle
 import android.widget.ImageView
@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
+import com.olav.rickandmorty.R
 import com.olav.rickandmorty.model.Character
 import com.olav.rickandmorty.retrofit.character.CharacterApi
 import com.olav.rickandmorty.retrofit.RamApiClient

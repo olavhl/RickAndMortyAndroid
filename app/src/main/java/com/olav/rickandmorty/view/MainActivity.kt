@@ -1,11 +1,12 @@
-package com.olav.rickandmorty
+package com.olav.rickandmorty.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.olav.rickandmorty.R
 import com.olav.rickandmorty.databinding.ActivityMainBinding
-import com.olav.rickandmorty.fragments.CharacterFragment
-import com.olav.rickandmorty.fragments.EpisodeFragment
+import com.olav.rickandmorty.view.fragments.CharacterFragment
+import com.olav.rickandmorty.view.fragments.EpisodeFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding

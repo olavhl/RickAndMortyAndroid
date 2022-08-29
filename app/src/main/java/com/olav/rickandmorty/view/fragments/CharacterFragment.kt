@@ -1,4 +1,4 @@
-package com.olav.rickandmorty.fragments
+package com.olav.rickandmorty.view.fragments
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.olav.rickandmorty.CharacterDetailActivity
+import com.olav.rickandmorty.view.CharacterDetailActivity
 import com.olav.rickandmorty.R
 import com.olav.rickandmorty.adapter.CharacterListAdapter
 import com.olav.rickandmorty.http.characters.fetchCharacters

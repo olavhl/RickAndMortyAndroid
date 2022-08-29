@@ -1,4 +1,4 @@
-package com.olav.rickandmorty
+package com.olav.rickandmorty.view
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +9,7 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.olav.rickandmorty.R
 import com.olav.rickandmorty.adapter.CharacterListAdapter
 import com.olav.rickandmorty.http.characters.fetchCharacter
 import com.olav.rickandmorty.model.Episode
