@@ -63,4 +63,22 @@ dependencies {
 
     // Picasso to render photos fetched from API
     implementation 'com.squareup.picasso:picasso:2.71828'
+
+
+    def junit_version = "4.13.2"
+    def mockito_version = "4.7.0"
+    def mockito_kotlin_version = "4.0.0"
+    def mockk_version = "1.12.5"
+
+    // Required -- JUnit 4 framework
+    testImplementation "junit:junit:$junit_version"
+    // Optional -- Mockito framework
+    testImplementation "org.mockito:mockito-core:$mockito_version"
+    // Optional -- mockito-kotlin
+    testImplementation "org.mockito.kotlin:mockito-kotlin:$mockito_kotlin_version"
+    // Optional -- Mockk framework
+    testImplementation "io.mockk:mockk:$mockk_version"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_version"
+
+
 }
